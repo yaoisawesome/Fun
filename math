@@ -1,0 +1,37 @@
+import random
+
+name=input("是哪个宝呀?")
+print ("亲爱的"+name+"快来做数学题吧！")
+num=int(input("今天打算做几道题呢？"))
+
+correct=0
+
+for question_num in range(1,num+1):
+    rand=random.randint(1,10)
+    rand2=random.randint(1,10)
+    if rand>rand2:
+        operation = '-'
+    else: operation = '+'
+        
+    maths = eval(str(rand) + operation + str(rand2))
+    print('\n题{}'.format(question_num))
+    print (rand,operation,rand2)
+
+    d=int(input ("你的答案是:"))
+    if d==maths:
+        print ("正确")
+        correct=correct+1
+    else:
+        print ("答错了. 正确的答案是",maths)
+print("\n")
+        
+score = correct/num*100
+print("总分: ", int(score))
+if score==100:
+    print("哇！满分！"+name+"你太棒了！")
+elif (score>=80 and score<100):
+    print(name,"今天很不错哦！再接再厉！")
+elif (score>=60 and score<80):
+    print("及格了，但还要继续加油哦！")
+else:
+    print("啊，没有及格呢...要不再做几题？") 
